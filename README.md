@@ -1,10 +1,6 @@
 # FAEA-FSRC
 The source code of paper 《Function-words Adaptively Enhanced Attention Networks for Few-Shot Inverse Relation Classification》, accepted to IJCAI 2022.
 
-## Introduction
-
-
-
 
 ## Requirements
 - ``python 3.6``
@@ -21,8 +17,23 @@ Please download data from the official links and put it under the ``./data/``.
 
 
 
+## Evaluation
+Please download trained model from [here](https://pan.baidu.com/s/14_zbQfVevYi6NxjcIdBEkw) [usoa] and put it under the ``./checkpoint/``. To evaluate our model, use command
 
+**FewRel 1.0**
 
+Under 10-way-1-shot setting
+```bash
+python train.py \
+    --N 10 --K 1 --Q 1 --test_iter 10000\
+    --only_test True --load_ckpt "./checkpoint/FAEA-bert-train_wiki-val_wiki-10-1.pth.tar"
+```
+Under 5-way-1-shot setting
+```bash
+python train.py \
+    --N 5 --K 1 --Q 1 --test_iter 10000\
+    --only_test True --load_ckpt "./checkpoint/FAEA-bert-train_wiki-val_wiki-5-1.pth.tar"
+```
 
 ## Training
 **FewRel 1.0**
